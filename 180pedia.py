@@ -2,17 +2,14 @@ import sys
 import os
 
 
-def create_and_run_cmd(args):
-
-    pt = args[0]
-    sec = args[1]
-    q = args[3]
+def create_cmd(args):
+    q_type = args[3].upper()
 
     cmd = "open"
 
-    if q == "LR":
+    if q_type == "LR":
         cmd += " https://180pedia.com/lsat-pt-#-section-#-LR-#"
-    elif q == "RC":
+    elif q_type == "RC":
         cmd += " https://180pedia.com/lsat-pt-#-section-#-passage-#"
     else:
         cmd += " https://180pedia.com/lsat-pt-#-section-#-game-#"
@@ -23,4 +20,4 @@ def create_and_run_cmd(args):
     os.system(cmd)
 
 
-create_and_run_cmd(sys.argv[1:])
+create_cmd(sys.argv[1:])
